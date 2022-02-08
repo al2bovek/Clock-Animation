@@ -6,23 +6,43 @@ body * {
   
 }
 body {
-  margin-top: 250px;
+  width: 800px;
+  
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: #EAEBED;
+  background-color: ghostwhite;
   
 }
-.clock
-{
-    background: #FFF;
+.clock, .aclock {   
+    display: inline-block;
+    background: ghostwhite;
     border: 1px solid maroon;
     border-radius: 50%;
     box-sizing: border-box;
     width: 333px;
     height:333px;
-    margin: 0 auto;
     position: relative;
     
 }
+
+.a {
+  
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background-color: ivory;
+  border: 1px solid maroon;
+  left: 150px;
+  top: 150px;
+  text-align: center;
+  font-size: 33px;
+  color: maroon;
+  z-index: 1;}
+
+
 .twelve, .three, .six, .nine
 {
     position:absolute ;
@@ -33,6 +53,8 @@ body {
     font-size:xx-large;
     text-align: center;
 }
+
+
 .twelve
 {
     left: 150px;
@@ -54,7 +76,8 @@ body {
     left: 1px;
     top:150px;
 }
-.hour
+
+.hour, .ahour
 {
     height: 100px;
     width: 12px;
@@ -63,37 +86,59 @@ body {
     border-radius: 6px;
     left: 49%;
     top: 70px;
-    animation: tick 43200s infinite linear;
-    -webkit-animation: tick 43200s infinite linear;
-}.minute
+    opacity: 0.9;
+}
+.hour {
+  animation: tick 43200s infinite linear;
+  -webkit-animation: tick 43200s infinite linear;
+}
+.ahour {
+  animation: atick 43200s infinite linear;
+  -webkit-animation: atick 43200s infinite linear;
+}
+.minute, .aminute
 {
     height: 140px;
     width: 6px;
     background: #777;
     position: absolute;
-    border-radius: 3px;
+    border-radius: 9px;
     left: 50%;
     top: 30px;
-    animation: tick 3600s infinite linear;
-    -webkit-animation: tick 3600s infinite linear;
+  }
+.minute {
+  animation: tick 3600s infinite linear;
+  -webkit-animation: tick 3600s infinite linear;
 }
-.second
+.aminute {
+  animation: atick 3600s infinite linear;
+  -webkit-animation: atick 3600s infinite linear;
+}
+.second, .asecond
 {
     height: 160px;
     width: 3px;
     background: maroon;
     position: absolute;
     border-radius: 3px;
-    left: 50%;
-    top: 3px;
-    animation: tick 60s infinite linear;
-    -webkit-animation: tick 60s infinite linear;
+    margin-left: 49%;
+    top: 7px;
+    
 }
-.hour, .minute, .second
+.second {
+  animation: tick 60s infinite linear;
+  -webkit-animation: tick 60s infinite linear;
+}
+.asecond {
+  animation: atick 60s infinite linear;
+  -webkit-animation: atick 60s infinite linear;
+}
+.hour, .minute, .second, .ahour, .aminute, .asecond
 {
-    transform-origin: 2px 100%;
-    -webkit-transform-origin: 2px 100%;
+    transform-origin: 3px 100%;
+    -webkit-transform-origin: 1px 100%;
 }
+
 @keyframes tick {
   to {
     transform: rotate(360deg);
@@ -102,5 +147,15 @@ body {
 @-webkit-keyframes tick {
   to {
     -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes atick {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes atick {
+  to {
+    -webkit-transform: rotate(-360deg);
   }
 }
